@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-header">Redaguoti registracijos įrašą</div>
+    <div class="card-body">
+        <form (ngSubmit)="onUpdate()" #f="ngForm">
+            <div class="mb-3">
+                <label class="form-label">Vardas</label>
+                <input type="text" class="form-control"  ngModel name="name" required minlength="3" maxlength="15" [(ngModel)]="registration.name">
+           
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Pavardė</label>
+                <input type="text" class="form-control" ngModel name="surname" required minlength="3" maxlength="15" [(ngModel)]="registration.surname">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gimimo metai</label>
+                <input type="number" class="form-control" ngModel name="year" required min="2000" max="2018" #inputYear="ngModel" [(ngModel)]="registration.year">
+                <!-- <span class="help-block" *ngIf="!inputYear.valid && inputYear.touched">Vaiko gimimo metai turi būti tarp 1900 ir 2022</span> -->
+            </div>
+            
+            <div class="mb-3">
+                <label for="exampleinputEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" ngModel name="exampleinputEmail" required email placeholder="email@email.com" #inputexampleinputEmail="ngModel" [(ngModel)]="registration.exampleinputEmail">
+                
+            </div>
+           
+            <div class="mb-3">
+                <label class="form-label">Lytis</label> <br>
+                Mergaitė
+                <input type="radio" ngModel name="gender" value="mergaite" [(ngModel)]="registration.gender" > <br>
+                Berniukas
+                <input type="radio" ngModel name="gender" value="berniukas" [(ngModel)]="registration.gender" >
+                
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Telefonas</label>
+                <input type="text" class="form-control" ngModel name="phone" placeholder="+370 00000000" required minlength="10" maxlength="12" [(ngModel)]="registration.phone">
+             </div>
+            
+            <div class="mb-3">
+                <label class="form-label">klase</label>
+                <input type="number" class="form-control" ngModel name="className" required min="5" max="12" #inputYear="ngModel" [(ngModel)]="registration.className" >
+                
+            </div>
+            <!-- mygtukas issaugoti pakeitimus -->
+            <button type="submit" class="btn btn-info">Išsaugoti pakeitimus</button>
+            <!-- mygtukas atšaukti -->
+            <a routerLink="" class="btn btn-success float-end">Atšaukti</a>
+        </form>
+    </div>
+</div>

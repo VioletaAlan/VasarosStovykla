@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { RegistrationService } from 'src/app/services/registration.service';
+
 
 @Component({
   selector: 'app-registration-new',
@@ -8,12 +10,15 @@ import { NgForm } from '@angular/forms';
 })
 export class RegistrationNewComponent implements OnInit {
 
-  constructor() { }
+  constructor( private registrationService:RegistrationService ) { }
 
   ngOnInit(): void {
   }
 public registrationSubmit(f:NgForm){
   console.log("Forma issiusta");
   console.log(f);
+  this.registrationService.addRegistration(f.form.value).subscribe(()=>{
+
+  });
 }
 }
